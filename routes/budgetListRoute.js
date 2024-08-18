@@ -4,8 +4,8 @@ const{ createBudget, deleteBudget, updateBudget, singleBudget, getAllBudget }=re
 const router = express.Router()
 
 router.post('/create',createBudget)
-router.delete('/delete/:id',deleteBudget)
-router.put('/update/:id',updateBudget)
+router.delete('/delete/:_id',deleteBudget)
+router.put('/update/:_id',updateBudget)
 router.get('/singleBudget/:id',singleBudget)
 router.get('/getAllBudget',getAllBudget)
 

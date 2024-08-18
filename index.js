@@ -1,4 +1,4 @@
-const express= require('express');
+const express= require('express')
 const app = express();
 const port=8080
 const connectToDb =require('./db')

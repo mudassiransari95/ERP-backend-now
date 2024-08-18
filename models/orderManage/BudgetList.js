@@ -4,35 +4,35 @@ const Schema = mongoose.Schema;
 const budgetListSchema = new Schema({
     orderNo: {
         type: String,
-        required: true,
+        
     },
     partyName: {
         type: String,
-        required: true,
+        
     },
     type: {
         type: String,
-        required: true,
+     
     },
     style: {
         type: String,
-        required: true,
+     
     },
     totalQty: {
-        type: Boolean,
-        required: true,
+        type: String,
+        
     },
     avgUnitPrice: {
         type: String,
-        required: true,
+        
     },
     totalValue: {
         type: String,
-        required: true,
+        
     },
     status: {
         type: String,
-        required: true,
+   
     }
   
 }, { timestamps: true });

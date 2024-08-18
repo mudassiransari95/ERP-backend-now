@@ -41,7 +41,7 @@ const updateBudget =async(req,res)=>{
         let budgetList= await Budget.findByIdAndUpdate({_id:id},{$set:{orderNo,partyName,type,style,totalQty,avgUnitPrice,totalValue,status}},{new:true})
         res.status(200).json({success:true,msg:"Budgetlist updated successfully",budgetList})
     } catch (error) {
-        response.status(500).json({success:false,msg:"error in updating list",error:error.message})
+        res.status(500).json({success:false,msg:"error in updating list",error:error.message})
     }
 }
 

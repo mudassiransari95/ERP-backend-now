@@ -4,11 +4,11 @@ const mongoose=require('mongoose')
 const SupplierSchema=new mongoose.Schema({
     PartyName:String,
     PartyEmail:String,
-    Phone:Number,
+    Phone:String,
     Password:String,
     Address:String,
     BalanceType:String,
-    OpeningBalance:Number,
+    OpeningBalance:String,
     Country:String,
     Remarks:String,
     Image:String

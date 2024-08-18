@@ -5,7 +5,7 @@ const createOrder= async(req,res)=>{
     let {orderNo,image,party,merchandiser,gsm,shipMode,payMode,year,season,totalQty,totalUnitPrice,totalValue,status}= req.body
     try {
        
-         newOrder= await new Order({
+     newOrder= await new Order({
           orderNo: orderNo,
           image: image,
           party: party,
@@ -32,8 +32,8 @@ const createOrder= async(req,res)=>{
 let deleteOrder= async(req,res)=>{
     let id=req.params._id;
  try {
-    await Order.findByIdAndDelete(id)
-    return res.status(200).json({success:true,msg:"Order deleted successfully"})
+  const data=  await Order.findByIdAndDelete(id)
+    return res.status(200).json({success:true,msg:"Order deleted successfully",data})
  } catch (error) {
 return res.status(500).json({success:false,msg:"error in deletion",error:error.message})
  }
@@ -41,12 +41,13 @@ return res.status(500).json({success:false,msg:"error in deletion",error:error.m
 
 const updateOrder =async(req,res)=>{
     let {orderNo,image,party,merchandiser,gsm,shipMode,payMode,year,season,totalQty,totalUnitPrice,totalValue,status}=req.body
-    let id= req.params._id;
+    let id= req.query;
+    console.log('iddd',id)
     try {
-        let orderList= await Order.findByIdAndUpdate({_id:id},{$set:{orderNo,image,party,merchandiser,gsm,shipMode,payMode,year,season,totalQty,totalUnitPrice,totalValue,status}},{new:true})
+        let orderList= await Order.findByIdAndUpdate({_id:id.q},{$set:{orderNo,image,party,merchandiser,gsm,shipMode,payMode,year,season,totalQty,totalUnitPrice,totalValue,status}},{new:true})
         res.status(200).json({success:true,msg:"orderlist updated successfully",orderList})
     } catch (error) {
-        response.status(500).json({success:false,msg:"error in updating list",error:error.message})
+        res.status(500).json({success:false,msg:"error in updating list",error:error.message})
     }
 }
 
@@ -56,7 +57,7 @@ const singleOrder= async(req,res)=>{
         let Order= await Order.findById(_id)
         res.status(200).json({success:true,msg:"single Order detail fetched successfully",Order})
     } catch (error) {
-        response.status(500).json({success:false,msg:"error in getting detail",error:error.message})
+        res.status(500).json({success:false,msg:"error in getting detail",error:error.message})
     }
 }
 

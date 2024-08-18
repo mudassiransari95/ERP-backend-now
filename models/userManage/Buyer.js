@@ -38,4 +38,4 @@ const buyerSchema = new Schema({
     
 }, { timestamps: true });
 
-module.exports = mongoose.model('Buyer', buyerSchema);
+module.exports = mongoose.model('Buyerone', buyerSchema);

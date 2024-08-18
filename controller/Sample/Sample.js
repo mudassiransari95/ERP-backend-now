@@ -52,8 +52,62 @@ const getallsampledata=async(req,res)=>{
     }
 }
 
+const deletesampledata=async(req,res)=>{
+ 
+        const id=req.params._id
+try {
+    const deletedata=await SampleModel.findByIdAndDelete(id)
+    res.status(200).json({
+        data:deletedata,
+        message:'data deleted successfully',
+        success:true,
+        error:false
+    }) 
+} catch (error) {
+    return res.json({
+        message:error.message||error,
+        success:false,
+        error:true
+    })
+}
+        
+}
+const updatesampledata=async(req,res)=>{
+    const { OrderNo,
+        Consignee,
+            Style,
+            Items,
+        SampleType,
+        GarmentsQty}=req.body
+        const id=req.params._id
+try {
+    const updatedata=await SampleModel.findByIdAndUpdate({_id:id},{$set:{ OrderNo,
+        Consignee,
+            Style,
+            Items,
+        SampleType,
+        GarmentsQty}},{new:true})
+    res.status(200).json({
+        data:updatedata,
+        message:'data deleted successfully',
+        success:true,
+        error:false
+    }) 
+} catch (error) {
+    return res.json({
+        message:error.message||error,
+        success:false,
+        error:true
+    })
+}
+        
+}
+
+
 
 module.exports={
     createSample,
-    getallsampledata
+    getallsampledata,
+    deletesampledata,
+    updatesampledata
 }

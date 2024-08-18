@@ -4,11 +4,11 @@ const mongoose=require('mongoose')
 const BuyerSchema=new mongoose.Schema({
     PartyName:String,
     PartyEmail:String,
-    Phone:Number,
+    Phone:String,
     Password:String,
     Address:String,
     BalanceType:String,
-    OpeningBalance:Number,
+    OpeningBalance:String,
     Country:String,
     Remarks:String,
     Image:String
@@ -16,6 +16,6 @@ const BuyerSchema=new mongoose.Schema({
 {
   timestamps:true  
 })
-const BuyerModel=mongoose.model('Buyer',BuyerSchema)
+const BuyerModel=mongoose.model('PartyBuyer',BuyerSchema)
 
 module.exports=BuyerModel

@@ -4,7 +4,7 @@ const { createBooking, deleteBooking, updateBooking, singleBooking, getAllBookin
 const router = express.Router()
 
 router.post('/create',createBooking)
-router.delete('/delete/:id',deleteBooking)
+router.delete('/delete/:_id',deleteBooking)
 router.put('/update/:id',updateBooking)
 router.get('/singleBooking/:id',singleBooking)
 router.get('/getAllBooking',getAllBooking)

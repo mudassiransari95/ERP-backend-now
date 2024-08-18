@@ -2,6 +2,16 @@ const SupplierModel = require("../../models/Party-list/SupplierSchema")
 
 
 const createSupplier=async(req,res)=>{
+    const {  PartyName,
+        PartyEmail,
+        Phone,
+        Password,
+        Address,
+        BalanceType,
+        OpeningBalance,
+        Country,
+        Remarks,
+        Image  }=req.body
     try {
         const createdata=await SupplierModel.create({
             PartyName,
@@ -47,8 +57,75 @@ const getallSupplierdata=async(req,res)=>{
         })
     }
 }
+// fdhuvduivjnfdiud
+
+
+const deletesupplierdata=async(req,res)=>{
+ 
+    const id=req.params._id
+try {
+const deletedata=await SupplierModel.findByIdAndDelete(id)
+res.status(200).json({
+    data:deletedata,
+    message:'data deleted successfully',
+    success:true,
+    error:false
+}) 
+} catch (error) {
+return res.json({
+    message:error.message||error,
+    success:false,
+    error:true
+})
+}
+    
+}
+const updatesupplierdata=async(req,res)=>{
+const {  PartyName,
+    PartyEmail,
+    Phone,
+    Password,
+    Address,
+    BalanceType,
+    OpeningBalance,
+    Country,
+    Remarks,
+    Image   }=req.body
+    const id=req.params._id
+try {
+const updatedata=await SupplierModel.findByIdAndUpdate({_id:id},{$set:{ 
+    PartyName,
+    PartyEmail,
+    Phone,
+    Password,
+    Address,
+    BalanceType,
+    OpeningBalance,
+    Country,
+    Remarks,
+    Image   
+}},{new:true})
+res.status(200).json({
+    data:updatedata,
+    message:'data deleted successfully',
+    success:true,
+    error:false
+}) 
+} catch (error) {
+return res.json({
+    message:error.message||error,
+    success:false,
+    error:true
+})
+}
+    
+}
+
+
 
 module.exports={
     createSupplier,
-    getallSupplierdata
+    getallSupplierdata,
+    deletesupplierdata,
+    updatesupplierdata
 }

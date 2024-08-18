@@ -3,8 +3,8 @@ const {createOrder, deleteOrder, getAllOrder, updateOrder, singleOrder}=require(
 const router = express.Router()
 
 router.post('/create',createOrder)
-router.delete('/delete/:id',deleteOrder)
-router.put('/update/:id',updateOrder)
+router.delete('/delete/:_id',deleteOrder)
+router.put('/update',updateOrder)
 router.get('/singleOrder/:id',singleOrder)
 router.get('/getAllOrder',getAllOrder)
 
