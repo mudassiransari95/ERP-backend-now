@@ -73,7 +73,7 @@ router.delete('/deletesupplierdata/:_id',deletesupplierdata)
 router.get('/allbuyerdata',getallbuyerdata)
 router.delete('/deletebuyerdata/:_id',deletebuyerdata)
 router.post('/createbuyer',createbuyer)
-,
+
 // getallshipmentdata
 
 // router.post('/create',createOrder)
